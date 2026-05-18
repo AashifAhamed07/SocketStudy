@@ -55,6 +55,8 @@ Socket programming finds applications in various domains, including web developm
 ## Program:
 ## Client:
 ```
+# Developed by : AASHIF AHAMED S
+# Register Number : 212225040004
 import socket
 from datetime import datetime
 s=socket.socket()
@@ -71,6 +73,8 @@ if ack:
 ```
 ## Server:
 ```
+# Developed by : AASHIF AHAMED S
+# Register Number : 212225040004
 import socket
 s=socket.socket()
 s.connect(('localhost',8000))
