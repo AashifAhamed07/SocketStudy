@@ -57,37 +57,44 @@ Socket programming finds applications in various domains, including web developm
 ```
 # Developed by : AASHIF AHAMED S
 # Register Number : 212225040004
-import socket
-from datetime import datetime
-s=socket.socket()
-s.bind(('localhost',8000))
-s.listen(5)
-c,addr=s.accept()
-print("Client Address : ",addr)
-now = datetime.now()
-c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
-ack=c.recv(1024).decode()
-if ack:
-    print(ack)
-    c.close()
+import socket  
+s=socket.socket()  
+s.bind(('localhost',8000))  
+s.listen(5)  
+c,addr=s.accept() 
+while True:  
+    i=input("Enter a data: ")
+    c.send(i.encode())  
+    ack=c.recv(1024).decode()  
+    if ack:
+        print(ack)
+        continue  
+    else:  
+        c.close()  
+        break
 ```
 ## Server:
 ```
 # Developed by : AASHIF AHAMED S
 # Register Number : 212225040004
 import socket
-s=socket.socket()
-s.connect(('localhost',8000))
-print(s.getsockname())
-print(s.recv(1024).decode())
-s.send("acknowledgement recived from the server".encode())
+s=socket.socket()  
+s.connect(('localhost',8000))  
+while True:  
+    print(s.recv(1024).decode()) 
+    s.send("Acknowledgement Recived".encode())
 
 ```
 ## Output:
-## Client:
-<img width="1813" height="275" alt="image" src="https://github.com/user-attachments/assets/90a4233f-203b-4ee0-ab71-2fc5bff435d0" />
-## Server:
-<img width="1812" height="292" alt="image" src="https://github.com/user-attachments/assets/739801d1-912b-4f0d-bf25-0cb71e96d944" />
+Client:
+<br>
+<img width="1206" height="326" alt="image" src="https://github.com/user-attachments/assets/691d083b-35c6-475c-bed8-37b1c2c1a269" />
+
+
+Server:
+<br>
+<img width="1200" height="180" alt="image" src="https://github.com/user-attachments/assets/d457f084-e2ad-4739-80a1-c35424727f40" />
+
 
 
 ## Result:
